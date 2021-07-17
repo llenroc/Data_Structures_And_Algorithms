@@ -50,9 +50,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="_035_printFirstItemThenFirstHalfThenSayHi100Times.js" />
     <Content Include="_034_findNemo.js" />
     <Content Include="_026_findNemo2.js" />
     <Content Include="_025_findNemo.js" />
+    <Content Include="_037_logAllPairsOfArray.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
