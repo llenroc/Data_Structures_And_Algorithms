@@ -16,7 +16,7 @@ namespace _00_Big_O
             Console.ReadKey();
         }
 
-        static void findNemo(string[] array)
+        static void findNemo(string[] array)  // Big O: O(n) --> Linear Time
         {
             for(int i = 0; i < array.Length; i++)
             {

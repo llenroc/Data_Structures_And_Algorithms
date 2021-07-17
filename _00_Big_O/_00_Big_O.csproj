@@ -50,7 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JavaScript1.js" />
+    <Content Include="_034_findNemo.js" />
+    <Content Include="_026_findNemo2.js" />
+    <Content Include="_025_findNemo.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
