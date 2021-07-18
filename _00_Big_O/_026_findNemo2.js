@@ -1,6 +1,6 @@
 ﻿
 /* https://replit.com/ */
-/* Big O Complexity Chart: https://towardsdatascience.com/understanding-time-complexity-with-python-examples-2bda6e8158a7 */
+/* Big O Complexity Chart: https://www.bigocheatsheet.com/ */
 /* https://repl.it/@aneagoie/findingNemo2 */
 
 //#1 -- For loop in Javascript.
