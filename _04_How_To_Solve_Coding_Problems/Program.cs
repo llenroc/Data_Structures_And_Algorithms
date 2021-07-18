@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data_Structures_And_Algorithms
+namespace _04_How_To_Solve_Coding_Problems
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // new cc ff  ee
         }
     }
 }

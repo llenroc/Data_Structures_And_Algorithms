@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Data_Structures_And_Algorithms")]
+[assembly: AssemblyTitle("_03_Big_O")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Data_Structures_And_Algorithms")]
+[assembly: AssemblyProduct("_03_Big_O")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("64b68484-d222-4615-b87e-451cafcdfbbf")]
+[assembly: Guid("2060d851-7f86-4126-9482-63dedfb3a171")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -50,6 +50,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="_041_O%28n!%29-example.js" />
+    <Content Include="_044_Code_spaceComplexity.js" />
     <Content Include="_038_printAllNumbersThenAllPairSums.js" />
     <Content Include="_035_printFirstItemThenFirstHalfThenSayHi100Times.js" />
     <Content Include="_034_findNemo.js" />

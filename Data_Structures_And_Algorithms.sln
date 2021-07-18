@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_00_Big_O", "_00_Big_O\_00_Big_O.csproj", "{2060D851-7F86-4126-9482-63DEDFB3A171}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_03_Big_O", "_03_Big_O\_03_Big_O.csproj", "{2060D851-7F86-4126-9482-63DEDFB3A171}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_04_How_To_Solve_Coding_Problems", "_04_How_To_Solve_Coding_Problems\_04_How_To_Solve_Coding_Problems.csproj", "{24B1DE42-1E8F-47A4-8FB5-9E53BB2ACA3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2060D851-7F86-4126-9482-63DEDFB3A171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2060D851-7F86-4126-9482-63DEDFB3A171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2060D851-7F86-4126-9482-63DEDFB3A171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24B1DE42-1E8F-47A4-8FB5-9E53BB2ACA3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B1DE42-1E8F-47A4-8FB5-9E53BB2ACA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B1DE42-1E8F-47A4-8FB5-9E53BB2ACA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B1DE42-1E8F-47A4-8FB5-9E53BB2ACA3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _00_Big_O
+namespace _03_Big_O
 {
     class Program
     {
@@ -91,10 +91,6 @@ namespace _00_Big_O
                 Console.WriteLine();
             }
         }
-
-
-
-
 
     }
 }
