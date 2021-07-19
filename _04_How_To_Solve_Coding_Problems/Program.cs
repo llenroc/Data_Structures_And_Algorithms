@@ -115,6 +115,8 @@ namespace _04_How_To_Solve_Coding_Problems
         static void Main(string[] args)
         {
             bool isFound = false;
+
+            //Google-Interview
             isFound = hasPairWithSum_QuadraticTime(array1);
             isFound = hasPairWithSum_QuadraticTime(array2);
 
@@ -123,9 +125,17 @@ namespace _04_How_To_Solve_Coding_Problems
 
             isFound = hasPairWithSum_Hashtable(array1, sum);
 
+            //containsCommonItem
+            isFound = containsCommonItem(array11, array22);
+            isFound = containsCommonItem(array11, array33);
+
+            isFound = containsCommonItem2(array11, array22);
+            isFound = containsCommonItem2(array11, array33);
+
             Console.ReadKey();
         }
 
+        #region [Google-Interview]
         static int[] array1 = new int[4] { 1, 2, 3, 9 };
         static int[] array2 = new int[4] { 1, 2, 4, 4 };
         static int sum = 8;
@@ -203,8 +213,59 @@ namespace _04_How_To_Solve_Coding_Problems
             }
             return false;
         }
+        #endregion
 
+        #region [containsCommonItem]
+        /*
+            Given 2 arrays, create a function that let's a user know (true/false) whether these two arrays contain any common items
+            
+            For Example:
+                const array1 = ['a', 'b', 'c', 'x']; // const array2 = ['z', 'y', 'i'];
+                should return false.
 
+                const array1 = ['a', 'b', 'c', 'x']; // const array2 = ['z', 'y', 'x'];
+                should return true.
+
+             2 parameters - arrays - no size limit
+             return true or false
+        */
+
+        static char[] array11 = new char[] { 'a', 'b', 'c', 'x' };
+        static char[] array22 = new char[] { 'z', 'y', 'i' }; // false
+        static char[] array33 = new char[] { 'z', 'y', 'x' }; // true
+
+        static bool containsCommonItem(char[] array11, char[] array22)
+        {
+            bool isFound = false;
+
+            for (int i = 0; i < array11.Length; i++)
+            {
+                for (int j = 0; j < array22.Length; j++)
+                {
+                    if(array11[i] == array22[j])
+                    {
+                        isFound = true;
+                    }
+                }
+            }
+            return isFound;
+        }
+
+        static bool containsCommonItem2(char[] array11, char[] array22)
+        {
+            bool isFound = false;
+
+            foreach(char chr in array11)
+            {
+                if (array22.Contains(chr))
+                {
+                    isFound = true;
+                }
+            }
+            return isFound;
+        }
+
+        #endregion
 
     }
 }
