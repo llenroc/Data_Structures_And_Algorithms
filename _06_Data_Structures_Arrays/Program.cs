@@ -24,9 +24,11 @@ namespace _06_Data_Structures_Arrays
 
         static void Main(string[] args)
         {
-            ImplementArray();
+            //ImplementArray();
+            //ReverseString();
+            MergeSortedArrays(new int[] { 0, 3, 4, 31 }, new int[] { 4, 6, 30 });
 
-            Console.ReadKey();
+           Console.ReadKey();
         }
 
         #region [ImplementArray]
@@ -55,6 +57,53 @@ namespace _06_Data_Structures_Arrays
             }
             Console.WriteLine(array.Get());
 
+        }
+        #endregion
+
+        #region [Reverse A String]
+        private static string ReverseString(string str = "Hi my name is Ashraf")
+        {
+            string reverseString = "";
+            char[] charArray = str.ToCharArray();
+
+            for (int i = str.Length - 1; i >= 0  ; i--)
+            {
+                reverseString = reverseString + charArray[i];
+            }
+
+            Console.WriteLine(reverseString);
+            return reverseString;
+        }
+        #endregion
+
+        #region [Merge Sorted Arrays]
+        static int[] MergeSortedArrays(int[] array1, int[] array2)
+        {
+            int[] mergedArrays = new int[array1.Length + array2.Length];
+            int idx1 = 0;
+            int idx2 = 0;
+            for (int i = 0; i < mergedArrays.Length; i++)
+            {
+                if(idx1 < array1.Length && idx2 < array2.Length && array1[idx1] < array2[idx2])
+                {
+                    mergedArrays[i] = array1[idx1++];
+                }
+                else if (idx1 < array1.Length && idx2 < array2.Length && array1[idx1] >= array2[idx2])
+                {
+                    mergedArrays[i] = array2[idx2++];
+                }
+                else if(idx1 < array1.Length || idx2 > array2.Length)
+                {
+                    mergedArrays[i] = array1[idx1++];
+                }
+                else if (idx2 < array2.Length || idx1 > array1.Length)
+                {
+                    mergedArrays[i] = array2[idx2++];
+                }
+            }
+
+            Console.WriteLine(string.Join(",", mergedArrays));
+            return mergedArrays;
         }
         #endregion
     }
