@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//
+using System.IO;
 
-namespace _06_Data_Structures__Arrays
+namespace _06_Data_Structures_Arrays
 {
     class Program
     {
@@ -19,11 +21,42 @@ namespace _06_Data_Structures__Arrays
         /* 069 Solution-Code https://repl.it/@aneagoie/ReverseString */
         /* 070 mergeSortedArrays-exercise-Repl https://repl.it/@aneagoie/MergeSortedArrays-exercise */
         /* 071 Solution-Code https://replit.com/@aneagoie/MergeSortedArrays */
-        /*  */
-
 
         static void Main(string[] args)
         {
+            ImplementArray();
+
+            Console.ReadKey();
         }
+
+        #region [ImplementArray]
+        private static void ImplementArray()
+        {
+            int arraySize = 15;
+            Array array = new Array(arraySize);
+            for (int i = 0; i < arraySize; i++)
+            { 
+                array.Push(i);
+            }
+            Console.WriteLine(array.Get());
+
+            array.Pop();
+            Console.WriteLine(array.Get());
+
+            array.Delete(1);
+            Console.WriteLine(array.Get());
+
+            array.Push("Ashraf");
+            Console.WriteLine(array.Get());
+
+            for (int i = 1; i < arraySize; i++)
+            {
+                array.Push(i * 100);
+            }
+            Console.WriteLine(array.Get());
+
+        }
+        #endregion
     }
+
 }

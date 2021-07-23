@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_03_Big_O", "_03_Big_O\_03_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_04_How_To_Solve_Coding_Problems", "_04_How_To_Solve_Coding_Problems\_04_How_To_Solve_Coding_Problems.csproj", "{24B1DE42-1E8F-47A4-8FB5-9E53BB2ACA3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_06_Data_Structures_ Arrays", "_06_Data_Structures_ Arrays\_06_Data_Structures_ Arrays.csproj", "{A2857F5F-9872-4D25-938F-E28414CE4AC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_06_Data_Structures_Arrays", "_06_Data_Structures_Arrays\_06_Data_Structures_Arrays.csproj", "{A2857F5F-9872-4D25-938F-E28414CE4AC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
