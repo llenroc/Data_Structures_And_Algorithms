@@ -26,6 +26,8 @@ namespace _06_Data_Structures_Arrays
         {
             //ImplementArray();
             //ReverseString();
+            //ReverseString2();
+            //ReverseString3();
             MergeSortedArrays(new int[] { 0, 3, 4, 31 }, new int[] { 4, 6, 30 });
 
            Console.ReadKey();
@@ -60,24 +62,75 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
-        #region [Reverse A String]
-        private static string ReverseString(string str = "Hi my name is Ashraf")
+        #region [Reverse A String 1]
+        private static string ReverseString(string str = "Hi My Name Is Ashraf") // Time complexity O(n)
         {
-            string reverseString = "";
-            char[] charArray = str.ToCharArray();
-
-            for (int i = str.Length - 1; i >= 0  ; i--)
+            if (str == null || str.Length < 2)
             {
-                reverseString = reverseString + charArray[i];
+                return "Chek the inputs!";
             }
 
-            Console.WriteLine(reverseString);
-            return reverseString;
+            string revString = "";
+            char[] charArray = str.ToCharArray();
+
+            for (int i = str.Length - 1; i >= 0  ; i--) // Time complexity O(n)
+            {
+                revString = revString + charArray[i];
+            }
+
+            Console.WriteLine(revString);
+            return revString;
+        }
+        #endregion
+
+        #region [Reverse A String 2] 
+        static string ReverseString2(string str = "Hi My Name Is Ashraf") // No Good! Time complexity O(n^2)
+        {
+            if (str == null || str.Length < 2)
+            {
+                return "Chek the inputs!";
+            }
+
+            char[] revArray = str.ToCharArray();
+            char temp = ' ';
+
+            for (int i = 0; i < revArray.Length; i++) // Time complexity O(n^2)
+            {
+                for (int j = 0; j < revArray.Length - 1 - i; j++)
+                {
+                    //if (revArray[j] > revArray[j+1]) // if you want to sort it
+                    //{
+                    temp = revArray[j];
+                    revArray[j] = revArray[j + 1];
+                    revArray[j + 1] = temp;
+                    //}
+                }
+            }
+
+            string rev = string.Join(" ", revArray);
+            Console.WriteLine(rev);
+            return rev;
+        }
+        #endregion
+
+        #region [Reverse A String 3] 
+        static string ReverseString3(string str = "Hi My Name Is Ashraf") // Time complexity O(n^2)
+        {
+            if (str == null || str.Length < 2)
+            {
+                return "Chek the inputs!";
+            }
+
+            string s = string.Join("", str.Reverse()); // Ok 
+            string s2 = string.Join("", str.ToCharArray().Reverse()); // Ok 
+            string s3 = string.Join(" ", str.Split(' ').Reverse()); // x
+
+            return s;
         }
         #endregion
 
         #region [Merge Sorted Arrays]
-        static int[] MergeSortedArrays(int[] array1, int[] array2)
+        static int[] MergeSortedArrays(int[] array1, int[] array2) // Time complexity O(n)
         {
             int[] mergedArrays = new int[array1.Length + array2.Length];
             int idx1 = 0;
