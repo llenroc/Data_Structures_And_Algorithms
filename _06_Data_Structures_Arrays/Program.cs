@@ -29,8 +29,9 @@ namespace _06_Data_Structures_Arrays
             //ReverseString2();
             //ReverseString3();
             MergeSortedArrays(new int[] { 0, 3, 4, 31 }, new int[] { 4, 6, 30 });
+            //MergeSortedArrays2(new int[] { 0, 3, 4, 31, 37, 39, 43, 48 }, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 });
 
-           Console.ReadKey();
+            Console.ReadKey();
         }
 
         #region [ImplementArray]
@@ -132,6 +133,15 @@ namespace _06_Data_Structures_Arrays
         #region [Merge Sorted Arrays]
         static int[] MergeSortedArrays(int[] array1, int[] array2) // Time complexity O(n)
         {
+            if (array1.Length == 0)
+            {
+                return array2;
+            }
+            if (array2.Length == 0)
+            {
+                return array1;
+            }
+
             int[] mergedArrays = new int[array1.Length + array2.Length];
             int idx1 = 0;
             int idx2 = 0;
@@ -157,6 +167,64 @@ namespace _06_Data_Structures_Arrays
 
             Console.WriteLine(string.Join(",", mergedArrays));
             return mergedArrays;
+        }
+        #endregion
+
+        #region [Merge Sorted Arrays 2]
+        static int[] MergeSortedArrays2(int[] array1, int[] array2) // Time complexity O(n)
+        {
+            if (array1.Length == 0)
+            {
+                return array2;
+            }
+            if (array2.Length == 0)
+            {
+                return array1;
+            }
+
+            var newLength = array1.Length + array2.Length;
+            var mergedArray = new int[newLength];
+            //System.Collections.Generic.List<int> mergedArray = new System.Collections.Generic.List<int>();
+
+            var array1Item = array1[0];
+            var array2Item = array2[0];
+            var index = 0;
+            var i = 0;
+            var j = 0;
+
+            while (index < newLength)
+            {
+                //if(!array2Item || array1Item < array2Item){
+                if (array1Item <= array2Item && i < array1.Length || j == array2.Length)
+                {
+                    mergedArray[index] = array1Item;
+                    Console.WriteLine("array1Item[{0}] = {1} -------", i, array1Item);
+
+                    i++;
+                    if (i < array1.Length)
+                    {
+                        array1Item = array1[i];
+                    }
+                }
+                else
+                {
+                    mergedArray[index] = array2Item;
+                    Console.WriteLine("array2Item[{0}] = {1}", j, array2Item);
+
+                    j++;
+                    if (j < array2.Length)
+                    {
+                        array2Item = array2[j];
+                    }
+                }
+
+                Console.WriteLine(mergedArray[index]);
+
+                index++;
+            }
+
+            Console.WriteLine(string.Join(",", mergedArray));
+            return mergedArray;
         }
         #endregion
     }
