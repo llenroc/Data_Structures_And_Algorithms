@@ -41,14 +41,23 @@ namespace _06_Data_Structures_Arrays
             //ReverseString();
             //ReverseString2();
             //ReverseString3();
+
             //MergeSortedArrays(new int[] { 0, 3, 4, 31 }, new int[] { 4, 6, 30 });
             //MergeSortedArrays2(new int[] { 0, 3, 4, 31, 37, 39, 43, 48 }, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 });
+
             //TwoSum(new int[] { 2,7,11,15}, 9);
             //TwoSum(new int[] { 3, 2, 4 }, 6);
             //TwoSum(new int[] { 3, 3 }, 6);
-            TwoSum2(new int[] { 2, 7, 11, 15 }, 9);
-            TwoSum2(new int[] { 3, 2, 4 }, 6);
-            TwoSum2(new int[] { 3, 3 }, 6);
+            //TwoSum2(new int[] { 2, 7, 11, 15 }, 9);
+            //TwoSum2(new int[] { 3, 2, 4 }, 6);
+            //TwoSum2(new int[] { 3, 3 }, 6);
+
+            //MaxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
+            //MaxSubArray(new int[] { 1 });
+            //MaxSubArray(new int[] { 5, 4, -1, 7, 8 });
+            //MaxSubArray2(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
+            //MaxSubArray3(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }); // x
+            MaxSubArray3(new int[] { 5, 4, -1, 7, 8 }); // x
 
             Console.ReadKey();
         }
@@ -249,7 +258,11 @@ namespace _06_Data_Structures_Arrays
 
         #region [1. Two Sum]
         #region [?]
+        /* 1. Two Sum: https://leetcode.com/problems/two-sum/description/ */
         /*
+            1. Two Sum
+                Easy
+
             Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
             You may assume that each input would have exactly one solution, and you may not use the same element twice.
             You can return the answer in any order.
@@ -313,7 +326,6 @@ namespace _06_Data_Structures_Arrays
                     new int[]{};
         */
 
-
         public static int[] TwoSum2(int[] nums, int target) // Good! Time complexity O(n)
         {
             if (nums == null || nums.Length < 2)
@@ -345,16 +357,89 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
-        #region []
+        #region [53. Maximum Subarray]
+        /* 53. Maximum Subarray: https://leetcode.com/problems/maximum-subarray/description/ */
         /*
+            53. Maximum Subarray
+                Easy
 
+            Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+            A subarray is a contiguous part of an array.
+
+            Example 1:
+                Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+                Output: 6
+                Explanation: [4,-1,2,1] has the largest sum = 6.
+
+            Example 2:
+                Input: nums = [1]
+                Output: 1
+
+            Example 3:
+                Input: nums = [5,4,-1,7,8]
+                Output: 23
+
+            Constraints:
+                1 <= nums.length <= 3 * 104
+                -105 <= nums[i] <= 105
+
+            Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
         */
-        static int[] xx() // 
-            {
 
-                return null;
+        /*
+            The main idea is to take only "useful" subarrays.
+            Useful for max sum means positive. So when I get the sum less than zero - I drop it.
+        */
+        static int MaxSubArray(int[] nums) // O(n)
+        {
+            int sum = 0;
+            int maxSum = nums[0];
+
+            for (int i = 0; i < nums.Length; i++) 
+            {
+                sum = sum + nums[i];
+
+                if(nums[i] > sum)
+                {
+                    sum = nums[i];
+                }
+
+                if(sum > maxSum)
+                {
+                    maxSum = sum;
+                }
             }
-            #endregion
+
+            return maxSum;
+        }
+        #endregion
+
+        #region [53. Maximum Subarray 2]
+        static int MaxSubArray2(int[] nums) // O(n)
+        {
+            int sum = nums[0];
+            int maxSum = nums[0];
+            for (int i = 1; i < nums.Length; i++)
+            {
+                sum = Math.Max(nums[i], sum + nums[i]);
+                maxSum = Math.Max(sum, maxSum);
+            }
+
+            return maxSum;
+        }
+        #endregion
+
+        #region [53. Maximum Subarray 3]
+        static public int MaxSubArray3(int[] nums, int i = 0, int sum = 0) // x
+        {
+            if (i >= nums.Length) { return sum; }
+              
+            sum = sum > 0 ? sum + nums[i] : nums[i];
+
+            int maxSum = Math.Max(sum, MaxSubArray3(nums, ++i, sum));
+            return maxSum;
+        }
+        #endregion
 
         #region []
         /*
