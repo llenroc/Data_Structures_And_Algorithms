@@ -95,6 +95,7 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
+
         #region [Reverse A String 1]
         private static string ReverseString(string str = "Hi My Name Is Ashraf") // Time complexity O(n)
         {
@@ -161,6 +162,7 @@ namespace _06_Data_Structures_Arrays
             return s;
         }
         #endregion
+
 
         #region [Merge Sorted Arrays]
         static int[] MergeSortedArrays(int[] array1, int[] array2) // Time complexity O(n)
@@ -259,6 +261,7 @@ namespace _06_Data_Structures_Arrays
             return mergedArray;
         }
         #endregion
+
 
         #region [1. Two Sum]
         #region [?]
@@ -361,6 +364,7 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
+
         #region [53. Maximum Subarray]
         /* 53. Maximum Subarray: https://leetcode.com/problems/maximum-subarray/description/ */
         /*
@@ -444,6 +448,7 @@ namespace _06_Data_Structures_Arrays
             return maxSum;
         }
         #endregion
+
 
         #region [283. Move Zeroes]
         /*
@@ -536,6 +541,7 @@ namespace _06_Data_Structures_Arrays
             Console.WriteLine(string.Join(", ", nums));
         }
         #endregion
+
 
         #region []
         /*
