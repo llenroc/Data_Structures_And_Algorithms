@@ -57,7 +57,11 @@ namespace _06_Data_Structures_Arrays
             //MaxSubArray(new int[] { 5, 4, -1, 7, 8 });
             //MaxSubArray2(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
             //MaxSubArray3(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }); // x
-            MaxSubArray3(new int[] { 5, 4, -1, 7, 8 }); // x
+            //MaxSubArray3(new int[] { 5, 4, -1, 7, 8 }); // x
+
+            //MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
+            //MoveZeroes2(new int[] { 0, 1, 0, 3, 12 });
+            MoveZeroes3(new int[] { 0, 1, 0, 3, 12 });
 
             Console.ReadKey();
         }
@@ -441,14 +445,95 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
-        #region []
+        #region [283. Move Zeroes]
         /*
+            283. Move Zeroes
+                Easy
 
+            Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+            Note that you must do this in-place without making a copy of the array.
+
+            Example 1:
+                Input: nums = [0,1,0,3,12]
+                Output: [1,3,12,0,0]
+
+            Example 2:
+                Input: nums = [0]
+                Output: [0]
+
+            Constraints:
+                1 <= nums.length <= 104
+                -231 <= nums[i] <= 231 - 1
+
+            Follow up: Could you minimize the total number of operations done?
         */
-        static int[] xxx() // 
+        static void MoveZeroes(int[] nums) // O(n^2)
         {
+            int temp = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = i; j < nums.Length - 1 - i; j++)
+                {
+                    if(nums[j] == 0)
+                    {
+                        temp = nums[j + 1];
+                        nums[j + 1] = nums[j];
+                        nums[j] = temp;
+                    }
+                }
+            }
 
-            return null;
+            Console.WriteLine(string.Join(", ", nums));
+        }
+        #endregion
+
+        #region [283. Move Zeroes 2]
+        static void MoveZeroes2(int[] nums) // 
+        {
+            int j = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != 0)
+                {
+                    nums[j++] = nums[i];
+                }
+            }
+
+            while (j < nums.Length)
+            {
+                nums[j++] = 0;
+            }
+
+            //Array.Fill(nums, 0, j, nums.Length - j);
+
+            Console.WriteLine(string.Join(", ", nums));
+        }
+        #endregion
+
+        #region [283. Move Zeroes 3]
+        /* Super simple c# one pointer implementation. One Loop, One if, and a swap. */
+        // Time: O(n) where n represents a number of nums
+        // Space: O(1) in-place solution - for constant
+        static void MoveZeroes3(int[] nums) // O(n) where n represents a number of nums
+        {
+            int j = 0;
+            int targetNum = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != targetNum)
+                {
+                    var temp = nums[j];
+                    nums[j++] = nums[i];
+                    nums[i] = temp; // could not just assign 0 to the next one as there are test cases for int[1] so that have to assign value from temp
+
+                    //nums[j++] = nums[i];
+                    //nums[i] = targetNum; // could not just assign 0 to the next one as there are test cases for int[1] so that have to assign value from temp
+                }
+            }
+
+            Console.WriteLine(string.Join(", ", nums));
         }
         #endregion
 
