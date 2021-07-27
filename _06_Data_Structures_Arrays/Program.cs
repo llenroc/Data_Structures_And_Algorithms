@@ -61,7 +61,11 @@ namespace _06_Data_Structures_Arrays
 
             //MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
             //MoveZeroes2(new int[] { 0, 1, 0, 3, 12 });
-            MoveZeroes3(new int[] { 0, 1, 0, 3, 12 });
+            //MoveZeroes3(new int[] { 0, 1, 0, 3, 12 });
+
+            //ContainsDuplicate(new int[] { 1, 2, 3, 1 });
+            ContainsDuplicate(new int[] { 1, 2, 3, 4 });
+            //ContainsDuplicate(new int[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 });
 
             Console.ReadKey();
         }
@@ -543,16 +547,59 @@ namespace _06_Data_Structures_Arrays
         #endregion
 
 
-        #region []
+        #region [217. Contains Duplicate]
         /*
+            Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
+            Example 1:
+                Input: nums = [1,2,3,1]
+                Output: true
+
+            Example 2:
+                Input: nums = [1,2,3,4]
+                Output: false
+
+            Example 3:
+                Input: nums = [1,1,1,3,3,4,3,2,4,2]
+                Output: true
         */
-        static int[] xxxx() // 
+        static bool ContainsDuplicate(int[] nums)
         {
+            HashSet<int> hashSet = new HashSet<int>();
 
-            return null;
+            foreach (int num in nums)
+            {
+                if (hashSet.Contains(num))
+                {
+                    return true;
+                }
+
+                hashSet.Add(num);
+            }
+            return false;
+
+            //bool containsDuplicate = nums.Distinct().Count() < nums.Length;
+            //return containsDuplicate;
         }
         #endregion
+
+        #region [217. Contains Duplicate 2]
+        static bool ContainsDuplicate2(int[] nums)
+        {
+            bool containsDuplicate = nums.Distinct().Count() < nums.Length;
+            return containsDuplicate;
+        }
+        #endregion
+
+        #region [217. Contains Duplicate 3]
+        static bool ContainsDuplicate3(int[] nums)
+        {
+            HashSet<int> hashSet = new HashSet<int>();
+
+            return nums.Any(x => !hashSet.Add(x));
+        }
+        #endregion
+
 
         #region []
         /*
