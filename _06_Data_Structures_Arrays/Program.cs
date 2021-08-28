@@ -16,18 +16,20 @@ namespace _06_Data_Structures_Arrays
         /* JavaScript Var vs Let vs Const: https://dev.to/sethusenthil/var-vs-let-vs-const-1cgc */
 
         /* 062 Arrays-Repl https://repl.it/@aneagoie/DataStructures-Arrays */
-        /* 066 Data-Structure-Array-Repl https://repl.it/@aneagoie/DataStructure-Array-Implementation */
+        /* 066 Data-Structure-ArrayDS-Repl https://repl.it/@aneagoie/DataStructure-ArrayDS-Implementation */
         /* 068 Reverse-String-Repl https://repl.it/@aneagoie/ReverseString-exercise */
         /* 069 Solution-Code https://repl.it/@aneagoie/ReverseString */
         /* 070 mergeSortedArrays-exercise-Repl https://repl.it/@aneagoie/MergeSortedArrays-exercise */
         /* 071 Solution-Code https://replit.com/@aneagoie/MergeSortedArrays */
 
         /* leetcode */
+        /* 0. Reverse String: https://leetcode.com/problems/reverse-string/ */
+        /* 0. Merge Sorted Arrays: https://leetcode.com/problems/merge-sorted-array/ */
         /* 1. Two Sum: https://leetcode.com/problems/two-sum/description/ */
         /* 53. Maximum Subarray: https://leetcode.com/problems/maximum-subarray/description/ */
         /* 283. Move Zeroes: https://leetcode.com/problems/move-zeroes/description/ */
         /* 217. Contains Duplicate: https://leetcode.com/problems/contains-duplicate/description/ */
-        /* 189. Rotate Array: https://leetcode.com/problems/rotate-array/description/ */
+        /* 189. Rotate ArrayDS: https://leetcode.com/problems/rotate-array/description/ */
 
         /* regex: https://regex101.com/ */
 
@@ -38,12 +40,19 @@ namespace _06_Data_Structures_Arrays
         static void Main(string[] args)
         {
             //ImplementArray();
+
             //ReverseString();
             //ReverseString2();
             //ReverseString3();
+            //ReverseString4();
+            //ReverseString5();
+            //ReverseString6();
 
             //MergeSortedArrays(new int[] { 0, 3, 4, 31 }, new int[] { 4, 6, 30 });
             //MergeSortedArrays2(new int[] { 0, 3, 4, 31, 37, 39, 43, 48 }, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 });
+
+            //MergeSortedArraysLeetCode(new int[] { 1, 2, 3, 0, 0, 0 }, 3, new int[] { 2, 5, 6 }, 3);
+            MergeSortedArraysLeetCode(new int[] { 0, 3, 4, 31, 37, 39, 43, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, 8, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 }, 13);
 
             //TwoSum(new int[] { 2,7,11,15}, 9);
             //TwoSum(new int[] { 3, 2, 4 }, 6);
@@ -64,17 +73,29 @@ namespace _06_Data_Structures_Arrays
             //MoveZeroes3(new int[] { 0, 1, 0, 3, 12 });
 
             //ContainsDuplicate(new int[] { 1, 2, 3, 1 });
-            ContainsDuplicate(new int[] { 1, 2, 3, 4 });
+            //ContainsDuplicate(new int[] { 1, 2, 3, 4 });
             //ContainsDuplicate(new int[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 });
 
             Console.ReadKey();
         }
 
+    
+        #region []
+        /*
+
+        */
+        static int[] xxx() // 
+        {
+
+            return null;
+        }
+        #endregion
+
         #region [ImplementArray]
         private static void ImplementArray()
         {
             int arraySize = 15;
-            Array array = new Array(arraySize);
+            ArrayDS array = new ArrayDS(arraySize);
             for (int i = 0; i < arraySize; i++)
             { 
                 array.Push(i);
@@ -159,9 +180,75 @@ namespace _06_Data_Structures_Arrays
                 return "Chek the inputs!";
             }
 
-            string s = string.Join("", str.Reverse()); // Ok 
-            string s2 = string.Join("", str.ToCharArray().Reverse()); // Ok 
-            string s3 = string.Join(" ", str.Split(' ').Reverse()); // x
+            IEnumerable<char> ss = str.Reverse();
+            string s = string.Join(" ", ss);
+
+            string s1 = string.Join("", str.Reverse()); // Ok -> "farhsA sI emaN yM iH" 
+            string s2 = string.Join("", str.ToCharArray().Reverse()); // Ok -> "farhsA sI emaN yM iH" 
+            string s3 = string.Join(" ", str.Split(' ').Reverse()); // x -> "Ashraf Is Name My Hi"
+
+            return s;
+        }
+        #endregion
+
+        #region [Reverse A String 4]
+        /*
+
+        */
+        static string ReverseString4(string str = "Hi My Name Is Ashraf") // 
+        {
+            string s = "";
+            char[] charArray = str.ToCharArray();
+            //s = ArrayDS.Reverse(charArray); // Works fine in LeetCode !!
+
+            return s;
+        }
+        #endregion
+
+        #region [Reverse A String 5]
+        /*
+
+        */
+        static string ReverseString5(string str = "Hi My Name Is Ashraf") // 
+        {
+            string s = "";
+            char[] arr = str.ToCharArray();
+            //s = ArrayDS.Reverse(charArray); // Works fine in LeetCode !!
+
+            for (int i = 0, end = arr.Length -1; i < end; i++, end--) //O(n)
+            {
+                char temp = arr[i];
+                arr[i] = arr[end];
+                arr[end] = temp;
+            }
+
+            s = string.Join("", arr);
+
+            return s;
+        }
+        #endregion
+
+        #region [Reverse A String 6]
+        /*
+
+        */
+        static string ReverseString6(string str = "Hi My Name Is Ashraf") // 
+        {
+            string s = "";
+            char[] arr = str.ToCharArray();
+            //s = ArrayDS.Reverse(charArray); // Works fine in LeetCode !!
+
+            //Time Complexity = O(n / 2) ~= O(n)
+            //Space Complexity = O(1)
+
+            for (int i = 0; i < arr.Length / 2; i++) //O(n)
+            {
+                char temp = arr[i];
+                arr[i] = arr[arr.Length - 1 - i];
+                arr[arr.Length - 1 - i] = temp;
+            }
+
+            s = string.Join("", arr);
 
             return s;
         }
@@ -266,6 +353,56 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
+        #region []
+        /*
+            https://leetcode.com/problems/merge-sorted-array/
+            //MergeSortedArraysLeetCode(new int[] { 0, 3, 4, 31, 37, 39, 43, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, 8, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 }, 13);
+            //MergeSortedArraysLeetCode(new int[] { 1, 2, 3, 0, 0, 0 }, 3, new int[] { 2, 5, 6 }, 3);
+        */
+        static void MergeSortedArraysLeetCode(int[] nums1, int m, int[] nums2, int n) // 
+        {
+
+            if (m == 0)
+            {
+                nums2.CopyTo(nums1, 0);
+                return;
+            }
+
+            if (n == 0)
+            {
+                return;
+            }
+
+            //int j = 0;
+            //for (int i = m; i < nums1.Length; i++)
+            //{
+            //    nums1[i] = nums2[j++];
+            //}
+            //Array.Sort(nums1);
+
+            int end1 = m - 1, end2 = n - 1;
+
+            for (int i = nums1.Length - 1; i >= 0; i--)
+            {
+                if (end2 < 0)
+                {
+                    break;
+                }
+
+                if (end1 >= 0 && nums1[end1] >= nums2[end2])
+                {
+                    nums1[i] = nums1[end1--];
+                }
+                else
+                {
+                    nums1[i] = nums2[end2--];
+                }
+            }
+
+
+        }
+        #endregion
+
 
         #region [1. Two Sum]
         #region [?]
@@ -301,26 +438,26 @@ namespace _06_Data_Structures_Arrays
         */
         #endregion
         public static int[] TwoSum(int[] nums, int target) // No Good! Nested Loops! Time complexity O(n^2)
-        {
-            int[] output = new int[2];
-
-            for (int i = 0; i < nums.Length; i++)
             {
-                for(int j = 1 + i; j < nums.Length; j++)
+                int[] output = new int[2];
+
+                for (int i = 0; i < nums.Length; i++)
                 {
-                    if(nums[i] + nums[j] == target)
+                    for(int j = 1 + i; j < nums.Length; j++)
                     {
-                        output[0] = i;
-                        output[1] = j;
-                        break;
+                        if(nums[i] + nums[j] == target)
+                        {
+                            output[0] = i;
+                            output[1] = j;
+                            break;
+                        }
                     }
                 }
-            }
 
-            Console.WriteLine(string.Join(",", output));
-            return output;
-        }
-        #endregion
+                Console.WriteLine(string.Join(",", output));
+                return output;
+            }
+            #endregion
 
         #region [1. Two Sum 2]
         /*
@@ -514,7 +651,7 @@ namespace _06_Data_Structures_Arrays
                 nums[j++] = 0;
             }
 
-            //Array.Fill(nums, 0, j, nums.Length - j);
+            //ArrayDS.Fill(nums, 0, j, nums.Length - j);
 
             Console.WriteLine(string.Join(", ", nums));
         }
@@ -644,6 +781,7 @@ namespace _06_Data_Structures_Arrays
             return null;
         }
         #endregion
+
     }
 
 }

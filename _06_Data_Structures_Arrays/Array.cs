@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace _06_Data_Structures_Arrays
 {
-    class Array
+    class ArrayDS
     {
-        public Array(int size = 10)
+        public ArrayDS(int size = 10)
         {
             this.Index = -1;
             this.Data = new object[size];
