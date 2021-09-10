@@ -24,7 +24,7 @@ namespace _06_Data_Structures_Arrays
 
         /* leetcode */
         /* 0. Reverse String: https://leetcode.com/problems/reverse-string/ */
-        /* 0. Merge Sorted Arrays: https://leetcode.com/problems/merge-sorted-array/ */
+        /* 0. Merge Sorted Arrays LeetCode: https://leetcode.com/problems/merge-sorted-array/ */
         /* 1. Two Sum: https://leetcode.com/problems/two-sum/description/ */
         /* 53. Maximum Subarray: https://leetcode.com/problems/maximum-subarray/description/ */
         /* 283. Move Zeroes: https://leetcode.com/problems/move-zeroes/description/ */
@@ -52,7 +52,7 @@ namespace _06_Data_Structures_Arrays
             //MergeSortedArrays2(new int[] { 0, 3, 4, 31, 37, 39, 43, 48 }, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 });
 
             //MergeSortedArraysLeetCode(new int[] { 1, 2, 3, 0, 0, 0 }, 3, new int[] { 2, 5, 6 }, 3);
-            MergeSortedArraysLeetCode(new int[] { 0, 3, 4, 31, 37, 39, 43, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, 8, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 }, 13);
+            //MergeSortedArraysLeetCode(new int[] { 0, 3, 4, 31, 37, 39, 43, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, 8, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 }, 13);
 
             //TwoSum(new int[] { 2,7,11,15}, 9);
             //TwoSum(new int[] { 3, 2, 4 }, 6);
@@ -60,6 +60,9 @@ namespace _06_Data_Structures_Arrays
             //TwoSum2(new int[] { 2, 7, 11, 15 }, 9);
             //TwoSum2(new int[] { 3, 2, 4 }, 6);
             //TwoSum2(new int[] { 3, 3 }, 6);
+
+            //TwoSum3(new int[] { 3, 2, 4 }, 6);
+            //TwoSum3(new int[] { 3, 3 }, 6);
 
             //MaxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
             //MaxSubArray(new int[] { 1 });
@@ -76,14 +79,27 @@ namespace _06_Data_Structures_Arrays
             //ContainsDuplicate(new int[] { 1, 2, 3, 4 });
             //ContainsDuplicate(new int[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 });
 
+            //Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3); // Expected: [5, 6, 7, 1, 2, 3, 4]
+            //Rotate(new int[] { -1, -100, 3, 99 }, 2); // Expected [3,99,-1,-100]
+            //Rotate(new int[] { 1, 2 }, 3); // Expected [2,1]
+            //Rotate(new int[] { 1, 2, 3 }, 2); // Expected [2,3,1]
+            //Rotate(new int[] { 1, 2, 3, 4, 5, 6 }, 2); // Expected [5,6,1,2,3,4]
+            //Rotate(new int[] { 1, 2, 3, 4, 5, 6 }, 4); // Expected [3,4,5,6,1,2]
+
+            LongestWord("fun&!! time");
+            LongestWord("I love dogs"); 
+
             Console.ReadKey();
         }
 
-    
-        #region []
-        /*
 
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
         */
+        #endregion
         static int[] xxx() // 
         {
 
@@ -120,7 +136,7 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
-
+   
         #region [Reverse A String 1]
         private static string ReverseString(string str = "Hi My Name Is Ashraf") // Time complexity O(n)
         {
@@ -353,7 +369,7 @@ namespace _06_Data_Structures_Arrays
         }
         #endregion
 
-        #region []
+        #region [Merge Sorted Arrays LeetCode]
         /*
             https://leetcode.com/problems/merge-sorted-array/
             //MergeSortedArraysLeetCode(new int[] { 0, 3, 4, 31, 37, 39, 43, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, 8, new int[] { 4, 6, 30, 32, 33, 34, 35, 38, 40, 41, 44, 46, 47 }, 13);
@@ -404,7 +420,7 @@ namespace _06_Data_Structures_Arrays
         #endregion
 
 
-        #region [1. Two Sum]
+        #region [1. Two Sum - Brute Force C# Solution]
         #region [?]
         /* 1. Two Sum: https://leetcode.com/problems/two-sum/description/ */
         /*
@@ -438,28 +454,33 @@ namespace _06_Data_Structures_Arrays
         */
         #endregion
         public static int[] TwoSum(int[] nums, int target) // No Good! Nested Loops! Time complexity O(n^2)
+        {
+            if (nums == null || nums.Length < 2)
             {
-                int[] output = new int[2];
+                return new int[2];
+            }
 
-                for (int i = 0; i < nums.Length; i++)
+            int[] output = new int[2];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for(int j = 1 + i; j < nums.Length; j++)
                 {
-                    for(int j = 1 + i; j < nums.Length; j++)
+                    if(nums[i] + nums[j] == target)
                     {
-                        if(nums[i] + nums[j] == target)
-                        {
-                            output[0] = i;
-                            output[1] = j;
-                            break;
-                        }
+                        output[0] = i;
+                        output[1] = j;
+                        break;
                     }
                 }
-
-                Console.WriteLine(string.Join(",", output));
-                return output;
             }
-            #endregion
 
-        #region [1. Two Sum 2]
+            Console.WriteLine(string.Join(",", output));
+            return output;
+        }
+        #endregion
+
+        #region [1. Two Sum 2 the best & the fastest]
         /*
             Complexity:
                 Time: O(N) where N is the number of intergers in the input array.
@@ -493,8 +514,8 @@ namespace _06_Data_Structures_Arrays
                     output[1] = i;
                     break;
                 }
-                else if (!complementDictionary.ContainsKey(nums[i])) // handles duplicates in complementDictionary
-                //else
+                else if (!complementDictionary.ContainsKey(nums[i])) // handles duplicates KEYS -> nums[i]  in complementDictionary
+                //else //x wrong
                 {
                     complementDictionary.Add(nums[i], i);
                 }               
@@ -502,6 +523,70 @@ namespace _06_Data_Structures_Arrays
 
             //Console.WriteLine(string.Join(",", output));
             return output;
+        }
+        #endregion
+
+        #region [1. Two Sum 3 NOT the best & the fastest]
+        #region [?]
+        /* 1. Two Sum: https://leetcode.com/problems/two-sum/description/ */
+        /*
+            1. Two Sum
+                Easy
+
+            Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+            You may assume that each input would have exactly one solution, and you may not use the same element twice.
+            You can return the answer in any order.
+
+            Example 1:
+                Input: nums = [2,7,11,15], target = 9
+                Output: [0,1]
+                Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+            Example 2:
+                Input: nums = [3,2,4], target = 6
+                Output: [1,2]
+
+            Example 3:
+                Input: nums = [3,3], target = 6
+                Output: [0,1]
+
+            Constraints:
+                2 <= nums.length <= 104
+                -109 <= nums[i] <= 109
+                -109 <= target <= 109
+                Only one valid answer exists.
+
+            Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+        */
+        #endregion
+        public static int[] TwoSum3(int[] nums, int target) // No Good! Nested Loops! Time complexity O(n^2)
+        {
+            if (nums == null || nums.Length < 2)
+            {
+                return new int[2];
+            }
+
+            int[] output = new int[2]; // Ok int[] output = new int[] { };
+
+            Dictionary<int, int> dict = new Dictionary<int, int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if(dict.ContainsValue(target - nums[i]))
+                {
+                    //return new int[] { i, dict[target - nums[i]]}; // ok
+                    output[0] = dict.Where(x => x.Value == target - nums[i]).FirstOrDefault().Key;
+                    output[1] = i;
+                    break;  
+                }
+                else
+                {
+                    dict.Add(i, nums[i]);
+                }
+            }
+
+            //Console.WriteLine(string.Join(",", output));
+            return output; 
         }
         #endregion
 
@@ -664,18 +749,18 @@ namespace _06_Data_Structures_Arrays
         static void MoveZeroes3(int[] nums) // O(n) where n represents a number of nums
         {
             int j = 0;
-            int targetNum = 0;
 
             for (int i = 0; i < nums.Length; i++)
             {
-                if (nums[i] != targetNum)
+                if (nums[i] != 0)
                 {
-                    var temp = nums[j];
+                    int temp = nums[j];
                     nums[j++] = nums[i];
                     nums[i] = temp; // could not just assign 0 to the next one as there are test cases for int[1] so that have to assign value from temp
 
+                    // xxx
                     //nums[j++] = nums[i];
-                    //nums[i] = targetNum; // could not just assign 0 to the next one as there are test cases for int[1] so that have to assign value from temp
+                    //nums[i] = 0; 
                 }
             }
 
@@ -702,6 +787,7 @@ namespace _06_Data_Structures_Arrays
         */
         static bool ContainsDuplicate(int[] nums)
         {
+            //List<int> hashSet = new List<int>(); // Error: Time Limit Exceeded
             HashSet<int> hashSet = new HashSet<int>();
 
             foreach (int num in nums)
@@ -738,21 +824,200 @@ namespace _06_Data_Structures_Arrays
         #endregion
 
 
-        #region []
+        #region [189. Rotate Array]
+        #region [?]
+        /* 189. Rotate Array: https://leetcode.com/problems/rotate-array/description/ */
         /*
+            189. Rotate Array
+                Medium
+
+            Given an array, rotate the array to the right by k steps, where k is non-negative.
+
+            Example 1:
+                Input: nums = [1,2,3,4,5,6,7], k = 3
+                Output: [5,6,7,1,2,3,4]
+                Explanation:
+                rotate 1 steps to the right: [7,1,2,3,4,5,6]
+                rotate 2 steps to the right: [6,7,1,2,3,4,5]
+                rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+            Example 2:
+                Input: nums = [-1,-100,3,99], k = 2
+                Output: [3,99,-1,-100]
+                Explanation: 
+                rotate 1 steps to the right: [99,-1,-100,3]
+                rotate 2 steps to the right: [3,99,-1,-100]
+
+            Constraints:
+                1 <= nums.length <= 105
+                -231 <= nums[i] <= 231 - 1
+                0 <= k <= 105
+
+            Follow up:
+                Try to come up with as many solutions as you can. There are at least three different ways to solve this problem.
+                Could you do it in-place with O(1) extra space?
 
         */
-        static int[] xxxxx() // 
+        #endregion
+        public static void Rotate(int[] nums, int k) // Brute force - Not working
         {
+            // % =>  x - (x / y) * y; or  y - (y / x) * x;
+            int x = nums.Length;
+            int y = k;
+            decimal xy = 0, yx = 0;
+            //xy = x - (x / y) * y;
+            //yx = y - (y / x) * x;
 
-            return null;
+            //Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
+            k = k % nums.Length;
+
+            for (int i = nums.Length - 1; i >= nums.Length - k; i--)
+            {
+                int temp = nums[nums.Length - 1];
+                for (int j = nums.Length - 1; j >= 1; j--)
+                {
+                    nums[j] = nums[j - 1];
+                }
+                nums[0] = temp;
+            }
+            //return null;
         }
         #endregion
 
-        #region []
+        #region [189. Rotate Array - 2]
+        #region [?]
+        /* 189. Rotate Array: https://leetcode.com/problems/rotate-array/description/ */
+        /* [C#] easy rotation solution: https://leetcode.com/problems/rotate-array/discuss/703699/C-easy-rotation-solution */
         /*
-
         */
+        #endregion
+        public static void Rotate2(int[] nums, int k) // 
+        {
+            k %= nums.Length;
+            Array.Reverse(nums, 0, nums.Length);
+            Array.Reverse(nums, 0, k);
+            Array.Reverse(nums, k, nums.Length - k);
+            //return null;
+        }
+        #endregion
+
+        #region [189. Rotate Array - 3]
+        #region [?]
+        /* 189. Rotate Array: https://leetcode.com/problems/rotate-array/description/ */
+        /* C# using 3 rotations: https://leetcode.com/problems/rotate-array/discuss/1269753/C-using-3-rotations */
+        /*
+        */
+        #endregion
+        public static void Rotate3(int[] nums, int k) // 
+        {
+            //Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
+            k = k % nums.Length;
+
+            RotatePart(nums, 0, nums.Length - 1);
+            RotatePart(nums, 0, k - 1);
+            RotatePart(nums, k, nums.Length - 1);
+            //return null;
+        }
+
+        public static void RotatePart(int[] nums, int start, int end)
+        {
+            while (start <= end)
+            {
+                int temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+                start++;
+                end--;
+            }
+        }
+        #endregion
+
+        #region [189. Rotate Array - 4]
+        #region [?]
+        /* 189. Rotate Array: https://leetcode.com/problems/rotate-array/description/ */
+        /* C# solutions: https://leetcode.com/problems/rotate-array/discuss/253052/C-Solution */
+        /*
+        */
+        #endregion
+        public static void Rotate4(int[] nums, int k) // 
+        {
+            //Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
+
+            // Solution 1 -- Time: O(n), Space: O(n)
+            int[] output = new int[nums.Length];
+            int length = nums.Length;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                output[(i + k) % length] = nums[i];
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                nums[i] = output[i];
+            }
+
+            //return null;
+        }
+        #endregion
+
+
+        #region [Longest Word]
+        #region [?]
+        /* 1. https://coderbyte.com/editor/Longest%20Word:Csharp */
+        /*
+            Longest Word
+
+            Have the function LongestWord(sen) take the sen parameter being passed and return the longest word in the 
+            string. If there are two or more words that are the same length, return the first word from the string with 
+            that length. Ignore punctuation and assume sen will not be empty. Words may also contain numbers, for 
+            example "Hello world123 567"
+
+            Examples
+                Input: "fun&!! time"
+                Output: time
+
+                Input: "I love dogs"
+                Output: love
+        */
+        #endregion
+        static string LongestWord(string sen) // "fun&!! time"
+        {
+            //char[] chrArray = sen.ToCharArray();
+
+            string punctuations = "`~!@#$%^&*()-_=+{}[]|\\:;\"'<,>.?/";
+
+            foreach (char chr in sen)
+            {
+                if(punctuations.Contains(chr))
+                {
+                    sen = sen.Replace(chr, ' ');
+                }
+            }
+
+            string[] s = sen.Split(' ');
+            string longestStr = s[0];
+
+            for (int i = 1; i < s.Length; i++)
+            {
+                if(s[i].Length > longestStr.Length)
+                {
+                    longestStr = s[i];
+                }
+            }
+
+            return longestStr;
+        }
+        #endregion
+
+
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
+        */
+        #endregion
         static int[] xxxxxx() // 
         {
 
@@ -761,10 +1026,13 @@ namespace _06_Data_Structures_Arrays
         #endregion
 
         #region []
+        #region [?]
+        /* 1.  */
         /*
-
+ 
         */
-        static int[] xxxxxxx() // 
+        #endregion
+        static int[] xxxxxdddx() // 
         {
 
             return null;
@@ -772,15 +1040,104 @@ namespace _06_Data_Structures_Arrays
         #endregion
 
         #region []
+        #region [?]
+        /* 1.  */
         /*
-
+ 
         */
+        #endregion
+        static int[] xxeeeefxxxx() // 
+        {
+
+            return null;
+        }
+        #endregion
+
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
+        */
+        #endregion
+        static int[] xdddxxxxx() // 
+        {
+
+            return null;
+        }
+        #endregion
+
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
+        */
+        #endregion
+        static int[] xxxxxssx() // 
+        {
+
+            return null;
+        }
+        #endregion
+
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
+        */
+        #endregion
+        static int[] xxxeexxx() // 
+        {
+
+            return null;
+        }
+        #endregion
+
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
+        */
+        #endregion
+        static int[] xxxxddx() // 
+        {
+
+            return null;
+        }
+        #endregion
+
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
+        */
+        #endregion
         static int[] xxxxxxxx() // 
         {
 
             return null;
         }
         #endregion
+
+        #region []
+        #region [?]
+        /* 1.  */
+        /*
+ 
+        */
+        #endregion
+        static int[] xxxsssxxx() // 
+        {
+
+            return null;
+        }
+        #endregion
+
+
 
     }
 

@@ -1,0 +1,2 @@
+repository = [ "mobile", "mouse", "moneypot", "monitor", "mousepad" ]
+customerQuery = "mouse"
